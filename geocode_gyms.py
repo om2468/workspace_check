@@ -4,10 +4,27 @@ import time
 import requests
 from urllib.parse import quote
 from dotenv import load_dotenv
+from geopy.distance import geodesic
 
 load_dotenv()
 
 API_KEY = os.getenv("OPENCAGE_API_KEY")
+
+
+def load_office_lookup():
+    office_lookup = {}
+    with open("workspace_office_locations.csv", mode="r", encoding="utf-8-sig") as infile:
+        reader = csv.DictReader(infile)
+        for row in reader:
+            office_lookup[row["Name"]] = (
+                float(row["Latitude"]),
+                float(row["Longitude"]),
+            )
+    return office_lookup
+
+
+def calculate_crow_flies_distance(office_coords, gym_coords):
+    return int(round(geodesic(office_coords, gym_coords).meters))
 
 def call_opencage_rest(query):
     # Construct the REST URL as per documentation
@@ -39,12 +56,14 @@ def geocode_csv(input_file, output_file):
         print(f"File {input_file} not found. Skipping.")
         return
 
+    office_lookup = load_office_lookup()
+
     print(f"Geocoding {input_file} -> {output_file} using REST API...")
     
     # Overwrite the output file by opening it in 'w' mode
     with open(input_file, mode='r', encoding='utf-8') as infile:
         reader = csv.DictReader(infile)
-        fieldnames = reader.fieldnames + ['gym_latitude', 'gym_longitude']
+        fieldnames = reader.fieldnames + ['gym_latitude', 'gym_longitude', 'crow_flies_distance_metres']
         
         with open(output_file, mode='w', newline='', encoding='utf-8') as outfile:
             writer = csv.DictWriter(outfile, fieldnames=fieldnames)
@@ -59,6 +78,12 @@ def geocode_csv(input_file, output_file):
                 
                 row['gym_latitude'] = lat if lat is not None else ""
                 row['gym_longitude'] = lng if lng is not None else ""
+
+                office_coords = office_lookup.get(row['office_name'])
+                if office_coords and lat is not None and lng is not None:
+                    row['crow_flies_distance_metres'] = calculate_crow_flies_distance(office_coords, (lat, lng))
+                else:
+                    row['crow_flies_distance_metres'] = ""
                 
                 writer.writerow(row)
                 outfile.flush()

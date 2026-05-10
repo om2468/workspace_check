@@ -34,6 +34,7 @@ def setup_database():
                     gym_address as Address,
                     walk_time_mins as Duration,
                     distance_metres as Distance,
+                    crow_flies_distance_metres as CrowFliesDistanceM,
                     gym_latitude as lat,
                     gym_longitude as lon
                 FROM read_csv_auto('{file}');

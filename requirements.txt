@@ -4,3 +4,4 @@ pandas
 pydeck
 python-dotenv
 requests
+geopy
