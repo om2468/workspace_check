@@ -1,6 +1,7 @@
 import csv
 import json
 import os
+import re
 import time
 from pathlib import Path
 
@@ -39,6 +40,23 @@ OFFICE_SCHEMA = {
 }
 
 
+def parse_json_text(response_text):
+    if not response_text:
+        return None
+
+    cleaned_text = response_text.strip()
+    fenced_match = re.search(r"```(?:json)?\s*(.*?)```", cleaned_text, re.DOTALL)
+    if fenced_match:
+        cleaned_text = fenced_match.group(1).strip()
+
+    for pattern in (r"(\{.*\})", r"(\[.*\])"):
+        match = re.search(pattern, cleaned_text, re.DOTALL)
+        if match:
+            return json.loads(match.group(1))
+
+    return json.loads(cleaned_text)
+
+
 def build_office_prompt(office_name, postcode, latitude, longitude):
     return (
         f"Use Google Maps grounding to identify the actual Workspace Group office named '{office_name}' in London. "
@@ -66,14 +84,12 @@ def fetch_office_record(prompt, retries=3):
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     tools=[types.Tool(google_maps=types.GoogleMaps())],
-                    response_mime_type="application/json",
-                    response_schema=OFFICE_SCHEMA,
                     thinking_config=types.ThinkingConfig(thinking_level="MINIMAL"),
                 ),
             )
             if not response.text:
                 return None
-            return json.loads(response.text)
+            return parse_json_text(response.text)
         except Exception as exc:
             print(f"Exception during API call: {exc}")
             if attempt < retries - 1:
