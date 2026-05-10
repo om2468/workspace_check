@@ -1,9 +1,11 @@
 from pathlib import Path
+from html import escape
 
 import duckdb
+import folium
 import pandas as pd
-import pydeck as pdk
 import streamlit as st
+from streamlit_folium import st_folium
 
 
 DB_PATH = "gym_locator.db"
@@ -100,35 +102,53 @@ def build_all_locations_gym_points(gyms: pd.DataFrame) -> pd.DataFrame:
     return gym_points
 
 
-def render_map(office_points: pd.DataFrame, gym_points: pd.DataFrame, view_state: pdk.ViewState):
-    tooltip = {
-        "html": "<b>{TooltipTitle}</b><br/>{TooltipType}<br/>{TooltipMetric1}<br/>{TooltipMetric2}<br/>{TooltipMetric3}",
-        "style": {"color": "white", "backgroundColor": "#111827"},
-    }
+def build_tooltip_html(row: pd.Series) -> str:
+    lines = [
+        f"<strong>{escape(str(row['TooltipTitle']))}</strong>",
+        escape(str(row["TooltipType"])),
+    ]
+    for field in ["TooltipMetric1", "TooltipMetric2", "TooltipMetric3"]:
+        value = str(row[field]).strip()
+        if value:
+            lines.append(escape(value))
+    return "<br/>".join(lines)
 
-    deck = pdk.Deck(
-        layers=[
-            pdk.Layer(
-                "ScatterplotLayer",
-                data=office_points,
-                get_position=["lon", "lat"],
-                get_fill_color=OFFICE_COLOR,
-                get_radius=34,
-                pickable=True,
-            ),
-            pdk.Layer(
-                "ScatterplotLayer",
-                data=gym_points,
-                get_position=["lon", "lat"],
-                get_fill_color="color",
-                get_radius=24,
-                pickable=True,
-            ),
-        ],
-        initial_view_state=view_state,
-        tooltip=tooltip,
+
+def render_map(office_points: pd.DataFrame, gym_points: pd.DataFrame, map_center: dict, zoom: int):
+    folium_map = folium.Map(
+        location=[map_center["lat"], map_center["lon"]],
+        zoom_start=zoom,
+        tiles="OpenStreetMap",
+        control_scale=True,
     )
-    st.pydeck_chart(deck, width="stretch")
+
+    for _, office in office_points.iterrows():
+        folium.CircleMarker(
+            location=[office["lat"], office["lon"]],
+            radius=8,
+            color="#ffdd57",
+            weight=2,
+            fill=True,
+            fill_color="#ffdd57",
+            fill_opacity=0.9,
+            tooltip=folium.Tooltip(build_tooltip_html(office), sticky=True),
+        ).add_to(folium_map)
+
+    for _, gym in gym_points.iterrows():
+        color = gym.get("color", PUREGYM_COLOR)
+        hex_color = f"#{int(color[0]):02x}{int(color[1]):02x}{int(color[2]):02x}"
+        folium.CircleMarker(
+            location=[gym["lat"], gym["lon"]],
+            radius=6,
+            color=hex_color,
+            weight=2,
+            fill=True,
+            fill_color=hex_color,
+            fill_opacity=0.8,
+            tooltip=folium.Tooltip(build_tooltip_html(gym), sticky=True),
+        ).add_to(folium_map)
+
+    st_folium(folium_map, height=520, width=None)
 
 
 def render_downloads():
@@ -187,7 +207,8 @@ if view_mode == "Single Office":
     render_map(
         build_office_points(offices.loc[offices["office_name"] == selected_office_name]),
         build_single_office_gym_points(office_gyms),
-        pdk.ViewState(latitude=selected_office["lat"], longitude=selected_office["lon"], zoom=15, pitch=0),
+        {"lat": selected_office["lat"], "lon": selected_office["lon"]},
+        15,
     )
 else:
     st.subheader("All Locations")
@@ -198,7 +219,8 @@ else:
     render_map(
         build_office_points(offices),
         all_gym_points,
-        pdk.ViewState(latitude=LONDON_CENTER["lat"], longitude=LONDON_CENTER["lon"], zoom=11, pitch=0),
+        LONDON_CENTER,
+        11,
     )
 
 st.sidebar.markdown("---")
