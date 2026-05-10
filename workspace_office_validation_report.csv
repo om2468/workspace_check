@@ -1,0 +1,62 @@
+office_name,latitude,longitude,expected_postcode,reverse_postcode,postcode_match,reverse_formatted,reverse_road,reverse_house_number,confidence
+138 Fetter Lane,51.514693,-0.109736,EC4A 1BT,EC4A 1BT,yes,"St Dunstan's House, 133-137 Fetter Lane, London, EC4A 1BT, United Kingdom",Fetter Lane,133-137,10
+160 Fleet Street,51.514929,-0.108344,EC4A 2DQ,EC4A 3DE,no,"17 Johnson's Court, London, EC4A 3DE, United Kingdom",Johnson's Court,17,10
+60 Gray's Inn Road,51.52018,-0.112131,WC1X 8LU,WC1X 8LU,yes,"60 Gray's Inn Road, London, WC1X 8LU, United Kingdom",Gray's Inn Road,60,10
+Archer Street Studios,51.511751,-0.133887,W1D 7AZ,W1D 7AY,no,"Archer Street Studios, 10-11 Archer Street, London, W1D 7AY, United Kingdom",Archer Street,10-11,10
+Arches 39-44,51.5412,-0.1455,NW1 9JN,NW1 8AB,no,"Regent's Canal towpath, London, NW1 8AB, United Kingdom",Regent's Canal towpath,,9
+Barley Mow Centre,51.491878,-0.261861,W4 4PH,W4 4PH,yes,"Betty, Barley Mow Passage, London, W4 4PH, United Kingdom",Barley Mow Passage,,9
+Bow Enterprise Park,51.52098,-0.016917,E3 3TZ,E3 3TS,no,"Skinner Court, 10 Barry Blandford Way, London, E3 3TS, United Kingdom",Barry Blandford Way,10,10
+Brickfields,51.530266,-0.076592,E2 8HD,E2 8HD,yes,"Outset Studio - Hoxton, 37 Cremer Street, London, E2 8HD, United Kingdom",Cremer Street,37,10
+Buspace Studios,51.525524,-0.211102,W10 5AP,W10 5AP,yes,"Cow Photo Studio, Unit 116 Conlan Street, London, W10 5AP, United Kingdom",Conlan Street,Unit 116,10
+Canalot Studios,51.526136,-0.208773,W10 5BN,W10 5DD,no,"Lucky Bean, 222 Kensal Road, London, W10 5DD, United Kingdom",Kensal Road,222,9
+Cannon Wharf,51.491676,-0.038914,SE8 5EN,SE8 5ES,no,"Cannon Wharf, Pell Street, London, SE8 5ES, United Kingdom",Pell Street,,10
+Canterbury Court,51.480405,-0.109498,SW9 6DE,SE5 0RZ,no,"Workspace, Camberwell New Road, London, SE5 0RZ, United Kingdom",Camberwell New Road,,10
+Cargo Works,51.507572,-0.10764,SE1 9PG,SE1 9PG,yes,"1-2 Hatfields, London, SE1 9PG, United Kingdom",Hatfields,1-2,10
+Centro Buildings,51.537113,-0.136198,NW1 0DU,NW1 0LB,no,"St Pancras Community Centre, 67 Plender Street, London, NW1 0LB, United Kingdom",Plender Street,67,9
+Chester House,51.480287,-0.110877,SW9 6DE,SW9 6BU,no,"Chester House, Brixton Road, London, SW9 6BU, United Kingdom",Brixton Road,,10
+China Works,51.492244,-0.120137,SE1 7SJ,SE1 7SJ,yes,"Workspace - China Works, Black Prince Road, London, SE1 7SJ, United Kingdom",Black Prince Road,,10
+Clerkenwell Workshops,51.524209,-0.106691,EC1R 0AT,EC1R 0AT,yes,"Clerkenwell Kitchen, Clerkenwell Close, London, EC1R 0AT, United Kingdom",Clerkenwell Close,,9
+Cremer Business Centre,51.530343,-0.07644,E2 8HD,E2 8HD,yes,"Outset Studio - Hoxton, 37 Cremer Street, London, E2 8HD, United Kingdom",Cremer Street,37,10
+E1 Studios,51.516371,-0.069509,E1 1DU,E1 1DU,yes,"Lloyds Bank, 3-5 Whitechapel Road, London, E1 1DU, United Kingdom",Whitechapel Road,3-5,9
+Ealing Cross,51.511785,-0.311691,W5 5BW,W5 2BS,no,"Ealing Cross, 85 Uxbridge Road, London, W5 2BS, United Kingdom",Uxbridge Road,85,10
+East London Works,51.517342,-0.067372,E1 1DU,E1 1DU,yes,"75 Whitechapel Road, London, E1 1DU, United Kingdom",Whitechapel Road,75,10
+Edinburgh House,51.488272,-0.111672,SE11 5DP,SE11 5DP,yes,"Edinburgh House, 154-182 Kennington Lane, London, SE11 5DP, United Kingdom",Kennington Lane,154-182,10
+Exmouth House,51.525327,-0.109567,EC1R 0JH,EC1R 0JQ,no,"Exmouth House, Pine Street, London, EC1R 0JQ, United Kingdom",Pine Street,,10
+Faircharm Creative Quarter,51.477558,-0.020517,SE8 3DX,SE8 3DZ,no,"Flounder House, 1-22 Creative Road, London, SE8 3DZ, United Kingdom",Creative Road,1-22,10
+Fleet House,51.513423,-0.104517,EC4V 6AL,EC4V 6AL,yes,"Cheeky Chico's, 8-12 New Bridge Street, London, EC4V 6AL, United Kingdom",New Bridge Street,8-12,9
+Grand Union Studios,51.525658,-0.214525,W10 5AD,W10 5BQ,no,"332 Ladbroke Grove, London, W10 5BQ, United Kingdom",Ladbroke Grove,332,10
+Greville Street,51.519502,-0.106348,EC1N 8SS,EC1N 8SQ,no,"24 Greville Street, London, EC1N 8SQ, United Kingdom",Greville Street,24,10
+Highgate Studios,51.553868,-0.144481,NW5 1TL,NW5 1TL,yes,"Highgate Studios, 53-79 Highgate Road, London, NW5 1TL, United Kingdom",Highgate Road,53-79,10
+Holywell Centre,51.523483,-0.08189,EC2A 4PS,EC2A 4JA,no,"Brooks Murray Architects, 8-10 New North Place, London, EC2A 4JA, United Kingdom",New North Place,8-10,10
+Kennington Park,51.480406,-0.111021,SW9 6DE,SW9 6BU,no,"St Mark's Church, Brixton Road, London, SW9 6BU, United Kingdom",Brixton Road,,9
+Leroy House,51.546385,-0.086723,N1 3QP,N1 1GA,no,"Leroy House, Henshall Street, London, N1 1GA, United Kingdom",Henshall Street,,10
+Lock Studios,51.522084,-0.018154,E3 3YD,E3 3PJ,no,"Cutting Edge Barbers, 81 Devons Road, London, E3 3PJ, United Kingdom",Devons Road,81,9
+Magenta House,51.517648,-0.067059,E1 1DQ,E1 1DQ,yes,"5 Greatorex Street, London, E1 1DQ, United Kingdom",Greatorex Street,5,10
+Mare Street Studios,51.541134,-0.05553,E8 3JS,E8 3QE,no,"Franzè & Evans Café, Cyntra Place, London, E8 3QE, United Kingdom",Cyntra Place,,9
+Metal Box Factory,51.504578,-0.097064,SE1 0HS,SE1 0HS,yes,"Caravan, 30 Great Guildford Street, London, SE1 0HS, United Kingdom",Great Guildford Street,30,9
+Mirror Works,51.532564,-0.011258,E15 2NH,E15 2NH,yes,"Glace Cafe, 12 Marshgate Lane, London, E15 2NH, United Kingdom",Marshgate Lane,12,9
+Morie Street Studios,51.460044,-0.19066,SW18 1SL,SW18 1SL,yes,"Morie Street, London, SW18 1SL, United Kingdom",Morie Street,,9
+Pall Mall Deposit,51.523244,-0.218836,W10 6BL,W10 6BN,no,"Pall Mall Deposit, 124-128 Barlby Road, London, W10 6BN, United Kingdom",Barlby Road,124-128,10
+Parkhall Business Centre,51.433134,-0.09503,SE21 8EN,SE21 8EE,no,"32 Martell Road, London, SE21 8EE, United Kingdom",Martell Road,32,10
+Quality Court,51.516952,-0.111615,WC2A 1HR,WC2A 1HP,no,"1 Quality Court, London, WC2A 1HP, United Kingdom",Quality Court,1,10
+Record Hall,51.520076,-0.110016,EC1N 7RJ,EC1N 7RJ,yes,"Bespoke Goldsmith, 16-16a Baldwins Gardens, London, EC1N 7RJ, United Kingdom",Baldwins Gardens,16-16a,9
+Riverside Business Centre,51.446054,-0.192606,SW18 4UQ,SW18 4LR,no,"Bendon Valley, London, SW18 4LR, United Kingdom",Bendon Valley,,9
+Salisbury House,51.517532,-0.087286,EC2M 5SQ,EC2M 7DT,no,"Berrymans Lace Mawer, Finsbury Circus, London, EC2M 7DT, United Kingdom",Finsbury Circus,,10
+Screenworks,51.550507,-0.097045,N5 2EF,N5 2EA,no,"Aberdeen Lane, London, N5 2EA, United Kingdom",Aberdeen Lane,,9
+Southbank House,51.492244,-0.120137,SE1 7SJ,SE1 7SJ,yes,"Workspace - China Works, Black Prince Road, London, SE1 7SJ, United Kingdom",Black Prince Road,,10
+The Biscuit Factory,51.49424,-0.061148,SE16 4DG,SE16 4DF,no,"Drummond Road, London, SE16 4DF, United Kingdom",Drummond Road,,9
+The Bon Marche Centre,51.463786,-0.115166,SW9 8BJ,SW9 8BH,no,"TK Maxx, Ferndale Road, London, SW9 8BH, United Kingdom",Ferndale Road,,9
+The Chocolate Factory,51.594575,-0.114382,N22 6XJ,N22 6XJ,yes,"The Chocolate Factory, 5 Clarendon Road, London, N22 6XJ, United Kingdom",Clarendon Road,5,10
+The Frames,51.523483,-0.08189,EC2A 4PS,EC2A 4JA,no,"Brooks Murray Architects, 8-10 New North Place, London, EC2A 4JA, United Kingdom",New North Place,8-10,10
+The Fuel Tin,51.477558,-0.020517,SE8 3DX,SE8 3DZ,no,"Flounder House, 1-22 Creative Road, London, SE8 3DZ, United Kingdom",Creative Road,1-22,10
+The Leather Market,51.500027,-0.084891,SE1 3ER,SE1 3ER,yes,"The Leather Market, 11-13 Weston Street, London, SE1 3ER, United Kingdom",Weston Street,11-13,10
+The Light Box,51.494604,-0.279046,W4 5PY,W4 5PY,yes,"Fabiia, 111 Power Road, London, W4 5PY, United Kingdom",Power Road,111,9
+The Mall,51.523244,-0.218836,W10 6BL,W10 6BN,no,"Pall Mall Deposit, 124-128 Barlby Road, London, W10 6BN, United Kingdom",Barlby Road,124-128,10
+The Pill Box,51.525179,-0.057482,E2 6GG,E2 6GG,yes,"Crafted, 115 Coventry Road, London, E2 6GG, United Kingdom",Coventry Road,115,10
+The Print House,51.546939,-0.074761,E8 3DL,E8 3DL,yes,"Cafe Oto, 18-22 Ashwin Street, London, E8 3DL, United Kingdom",Ashwin Street,18-22,9
+The Print Rooms,51.503844,-0.100359,SE1 0LH,SE1 0LH,yes,"Hank and Ginger, 164-180 Union Street, London, SE1 0LH, United Kingdom",Union Street,164-180,9
+The Shaftesbury Centre,51.523714,-0.219625,W10 6BN,W10 6BN,yes,"Electric Works London, 85 Barlby Road, London, W10 6BN, United Kingdom",Barlby Road,85,9
+Tower Bridge Business Complex,51.494743,-0.063184,SE16 4DG,SE16 4DP,no,"Clements Road, London, SE16 4DP, United Kingdom",Clements Road,,9
+Vox Studios,51.48606,-0.118422,SE11 5JH,SE11 5JH,yes,"ClearScore, Kennington Lane, London, SE11 5JH, United Kingdom",Kennington Lane,,10
+Wenlock Studios,51.532503,-0.096272,N1 7EU,N1 7GS,no,"The Wenlock Building, 50-56 Wharf Road, London, N1 7GS, United Kingdom",Wharf Road,50-56,10
+Westbourne Studios,51.521365,-0.20306,W10 5JJ,W10 5JJ,yes,"Westbourne Studios, 242 Acklam Road, London, W10 5JJ, United Kingdom",Acklam Road,242,10

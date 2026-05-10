@@ -1,70 +1,31 @@
 office_name,office_address,gym_name,gym_address,distance_metres,walk_time_mins,gym_latitude,gym_longitude,crow_flies_distance_metres
-138 Fetter Lane,EC4A 1BT,PureGym London Chancery Lane,"1-3 Chancery Lane, London, EC4A 1AY",120,2,51.515896,-0.109651,127
-138 Fetter Lane,EC4A 1BT,PureGym London Farringdon,"40-42 Farringdon Street, London, EC4A 4AN",500,7,51.516905,-0.104752,305
-160 Fleet Street,EC4A 2DQ,PureGym London Chancery Lane,"60-63 Chancery Ln, London WC2A 1HS",650,9,51.515421,-0.112006,335
-160 Fleet Street,EC4A 2DQ,PureGym London St Paul's,"15-17 Ludgate Hill, London EC4M 7AD",700,9,51.514475,-0.104104,245
-60 Gray's Inn Road,WC1X 8LU,PureGym London Holborn,"Saffron House, 6-10 Kirby St, London EC1N 8TS",650,9,51.519882,-0.107007,507
-Archer Street Studios,W1D 7AZ,PureGym London Soho,"33-35 Old Compton St, London W1D 5JU",280,4,51.512938,-0.13158,196
-Arches 39-44,NW1 9JN,PureGym London Camden,"Unit 2, The Interchange, Oval Road, London, NW1 7EP",650,9,51.539255,-0.148339,293
-Barley Mow Centre,W4 4PH,PureGym London Chiswick,"Chiswick High Rd, London W4 1SY",550,7,51.493417,-0.249484,825
-Bow Enterprise Park,E3 3TD,PureGym London Bow,"Unit 2, Bow Enterprise Park, 30-32 Bow Rd, London E3 3TD",50,1,51.524468,-0.008716,541
-Brickfields,E2 8HD,PureGym London Bethnal Green,"2-4 Old Ford Rd, Bethnal Green, London E2 9PJ",500,7,51.529975,-0.053978,1569
-Buspace Studios,W10 5AP,PureGym London Ladbroke Grove,"151-153 Freston Road, London, W10 6TH",550,7,51.51217,-0.219206,1895
-Canalot Studios,W10 5BN,PureGym London Ladbroke Grove,"150-152 Ladbroke Grove, London W10 5NE",350,5,51.517376,-0.209764,815
-Cannon Wharf,SE8 5EN,PureGym London Surrey Quays,"Surrey Quays Shopping Centre, Redriff Rd, London SE16 7LL",750,9,51.4944945,-0.0458974,1125
-Canterbury Court,SW9 6DE,PureGym London Oval,"2-10 Voltaire Rd, London SW4 6DH",800,10,51.465938,-0.133615,2242
-Cargo Works,SE1 9PG,PureGym London Waterloo,"The Concourse, Waterloo Station, London SE1 8SW",550,7,51.502707,-0.113252,631
-Cargo Works,SE1 9PG,PureGym London Southwark,"15-17 Hatfields, London SE1 9PG",450,6,51.507582,-0.107719,147
-Centro Buildings,NW1 0DU,PureGym London Camden,"8-9 Camden High St, London NW1 7JE",550,7,51.5349318,-0.138995,346
-Chester House,SW9 6DE,PureGym London Oval,"12-15 Camberwell New Road, London, SE5 0TF",550,7,51.475441,-0.095974,1313
-China Works,SE1 7SJ,PureGym London Lambeth,"81-87 South Lambeth Rd, London SW8 1RG",850,10,51.481868,-0.125375,1268
-Clerkenwell Workshops,EC1R 0AT,PureGym London Farringdon,"31-35 Farringdon Rd, London EC1M 3JF",650,9,51.519901,-0.105954,479
-Cremer Business Centre,E2 8HD,PureGym London Shoreditch,"1-6 Bateman's Row, London EC2A 3HH",650,9,51.525531,-0.079439,725
-E1 Studios,E1 1DU,PureGym London Aldgate,"St Clare House, 30-33 Minories, London EC3N 1DD",650,9,51.512367,-0.0754101,969
-Ealing Cross,W5 5TH,PureGym London Ealing,"2-8 New Broadway, London W5 2XA",550,7,51.513314,-0.306225,406
-East London Works,E1 1DU,PureGym London Whitechapel,"80-86 Whitechapel Rd, London E1 1JE",350,5,51.5182562,-0.0636092,48
-Edinburgh House,SE11 5DP,PureGym London Vauxhall,"Vauxhall Island Site, 100 Wandsworth Rd, London SW8 2JY",650,9,51.475874,-0.132979,1895
-Exmouth House,EC1R 0JH,PureGym London Farringdon,"32-36 Saffron Hill, London EC1N 8FH",550,7,51.520616,-0.106818,534
-Exmouth House,EC1R 0JH,PureGym London Angel,"29-31 Pentonville Rd, London N1 9PX",800,10,51.532907,-0.111715,919
-Faircharm Creative Quarter,SE8 3DX,PureGym London Deptford,"Unit 2, Deptford Landings, Cannon Wharf, Evelyn Street, London, SE8 5RL",550,7,51.48873,-0.038551,1650
-Fleet House,EC4V 6AL,PureGym London St Paul's,"15-17 Ludgate Hill, London EC4M 7PR",450,6,51.51414,-0.1031642,175
-Fleet House,EC4V 6AL,PureGym London Fleet Street,"2-4 Fleet Street, London EC4Y 1AU",500,7,51.513691,-0.111256,538
-Greville Street,EC1N 8SS,PureGym London Farringdon,"1-3 Charterhouse St, London EC1N 6LT",350,5,51.5179333,-0.1072379,276
-Highgate Studios,NW5 1TL,PureGym London Kentish Town,"156-158 Kentish Town Rd, London NW1 9QB",850,10,51.546288,-0.141549,888
-Holywell Centre,EC2A 4PS,PureGym London Shoreditch,"1-6 Bateman's Row, London, EC2A 3HH",300,4,51.525531,-0.079439,227
-Holywell Centre,EC2A 4PS,PureGym London Old Street,"225 City Road, London, EC1V 1JT",650,9,51.5286,-0.092271,1035
-Kennington Park,SW9 6DE,PureGym London Oval,"Unit 2, 298-306 South Lambeth Rd, London SW8 1SS",800,10,51.485977,-0.123118,1016
-Leroy House,N1 3QP,PureGym London Angel,"338-346 Goswell Rd, London EC1V 7LQ",650,9,51.5306296,-0.1032214,866
-Lock Studios,E3 3YD,PureGym London Bow,"Unit 2, 60 Gillender St, London E3 3JX",550,7,51.521132,-0.009798,594
-Magenta House,E1 1DQ,PureGym London Aldgate,"88-92 Whitechapel Rd, London E1 1HS",500,7,51.515887,-0.063356,219
-Mare Street Studios,E8 3HE,PureGym London Hackney,"298-300 Mare St, London E8 1HE",350,5,51.545306,-0.054939,466
-Metal Box Factory,SE1 0HS,PureGym London Borough,"150 Borough High St, London SE1 1LB",550,7,51.50258,-0.092566,383
-Metal Box Factory,SE1 0HS,PureGym London Waterloo,"11-15 The Cut, London SE1 8FT",750,9,51.5032026,-0.1068903,699
-Mirror Works,E15 2NH,PureGym London Stratford,"Units 1-3, 30-38 Great Eastern Rd, London E15 1BB",500,7,51.543629,0.002028,828
-Morie Street Studios,SW18 1SL,PureGym London Wandsworth,"Wandsworth High Street, London, SW18 4FA",550,7,51.443766,-0.193606,1731
-Pall Mall Deposit,W10 6BL,PureGym London Ladbroke Grove,"Unit 2, The Ladbroke Grove Leisure Centre, Barandon Walk, London W11 1AS",750,9,51.51911,-0.203729,1145
-Quality Court,WC2A 1HR,PureGym London Chancery Lane,"84-86 Chancery Lane, London WC2A 1DL",120,2,51.515944,-0.112071,100
-Quality Court,WC2A 1HR,PureGym London Holborn,"127-133 High Holborn, London WC1V 6NP",600,8,51.518438,-0.11449,233
-Record Hall,EC1N 7RJ,PureGym London Chancery Lane,"80-86 Chancery Lane, London, WC2A 1ET",550,7,51.515693,-0.112124,660
-Record Hall,EC1N 7RJ,PureGym London Farringdon,"33-35 Charterhouse St, London, EC1M 6PX",750,9,51.520797,-0.098508,815
-Riverside Business Centre,SW18 4UQ,PureGym London Wandsworth,"Wandsworth High St, London SW18 4JR",650,9,51.457727,-0.196178,1256
-Salisbury House,EC2M 5SQ,PureGym London Moorgate,"105 Moorgate, London EC2M 6SD",230,3,51.517744,-0.088848,184
-Salisbury House,EC2M 5SQ,PureGym London Aldgate,"15-17 Mansell St, London E1 8AA",750,9,51.513764,-0.073161,993
-Screenworks,N5 2EF,PureGym London Highbury,"81-83 Highbury Grove, London N5 1HF",500,7,51.5477022,-0.0983105,423
-Southbank House,SE1 7SJ,PureGym London Waterloo,"Unit 2, 85-87 Waterloo Rd, London SE1 8UD",550,7,51.504012,-0.111613,1527
-The Biscuit Factory,SE16 4DG,PureGym London Bermondsey,"The Biscuit Factory, 100 Drummond Rd, London SE16 4DG",0,0,51.494066,-0.0631783,142
-The Bon Marche Centre,SW9 8BJ,PureGym London Brixton,"422-424 Brixton Rd, London SW9 7AY",450,6,51.464305,-0.114735,116
-The Chocolate Factory,N22 6XJ,PureGym London Wood Green,"Unit 1, Wood Green Shopping City, High Rd, London N22 6BA",550,7,51.595222,-0.109262,268
-The Frames,EC2A 4PS,PureGym London Shoreditch,"1-6 Bateman's Row, London, EC2A 3HH",280,4,51.525531,-0.079439,198
-The Frames,EC2A 4PS,PureGym London Old Street,"335-347 Old St, London, EC1V 9LL",550,8,51.527437,-0.078912,25
-The Fuel Tin,SE8 3DX,PureGym London Surrey Quays,"Unit 4, Surrey Quays Leisure Park, SE16 7LL",850,10,51.495399,-0.046937,2468
-The Leather Market,SE1 3ER,PureGym London Borough,"152-156 Long Ln, London SE1 4BS",500,7,51.499433,-0.086545,133
-The Mall,N1 0PD,PureGym London Angel,"30-35 Farringdon Rd, London EC1M 3JF",750,9,51.519901,-0.105954,1788
-The Pill Box,E2 6GG,PureGym London Bethnal Green,"15-23 Bethnal Green Rd, London E1 6LA",550,7,51.524203,-0.073614,1129
-The Print House,E8 3DL,PureGym London Dalston,"Unit 2, Dalston Cross Shopping Centre, Dalston, London E8 2LX",550,7,51.547711,-0.074265,166
-The Print Rooms,SE1 0LH,PureGym London Waterloo,"150 Waterloo Rd, London SE1 8SB",800,10,51.5025412,-0.1105816,724
-The Shaftesbury Centre,W10 6BN,PureGym London Ladbroke Grove,"Unit 2, Ladbroke Grove, London W10 5AA",650,9,51.524208,-0.214282,939
-Tower Bridge Business Complex,SE16 4DG,PureGym London Bermondsey,"The Biscuit Factory, 100 Drummond Rd, London SE16 4DG",659,2,51.494066,-0.0631783,162
-Vox Studios,SE11 5JH,PureGym London Vauxhall,"85-89 Albert Embankment, London SE1 7TP",650,9,51.487956,-0.123714,424
-Wenlock Studios,N1 7EU,PureGym London Angel,"338-346 Goswell Rd, London EC1V 7LQ",650,9,51.5306296,-0.1032214,675
-Westbourne Studios,W10 5JJ,PureGym London Ladbroke Grove,"Canalside House, 383 Ladbroke Grove, London W10 5AA",350,5,51.524208,-0.214282,841
+60 Gray's Inn Road,"60 Gray's Inn Rd, London WC1X 8LU, UK (WC1X 8LU)",PureGym London Holborn,"84 Theobalds Rd, London WC1X 8RW, UK",420,6,51.520617,-0.118061,414
+Archer Street Studios,"10-11 Archer St, London W1D 7AZ, UK (W1D 7AZ)",PureGym London Piccadilly,"Rex House, 4-12 Regent St., London SW1Y 4PE, UK",450,7,51.508514,-0.133303,362
+Brickfields,"Cremer Business Centre, 37 Cremer St, London E2 8HD, UK (E2 8HD)",PureGym London Hoxton,"Rosewood Building, Unit 14 Cremer St, London E2 8GX, UK",125,2,51.55,-0.05,2868
+Canterbury Court,"Canterbury Court, 1-3 Brixton Rd, London SW9 6DE, UK (SW9 6DE)",PureGym London Oval,"Units 4, Brixton Rd, London SW9 6DE, UK",40,1,51.480402,-0.110227,51
+Cargo Works,"1-2 Hatfields, London SE1 9PG, UK (SE1 9PG)",PureGym London Waterloo,"11-15 Brad St, London SE1 8TG, UK",450,6,51.503982,-0.108617,405
+Chester House,"1-3 Brixton Rd, London SW9 6DE, UK (SW9 6DE)",PureGym London Oval,"Units 4, Brixton Rd, London SW9 6DE, UK",60,1,51.480402,-0.110227,47
+Clerkenwell Workshops,"27-31 Clerkenwell Close, London EC1R 0AT, UK (EC1R 0AT)",PureGym London Farringdon,"122 Clerkenwell Rd, London EC1R 5DL, UK",250,3,51.52218,-0.108959,275
+Cremer Business Centre,"Cremer Business Centre, London E2 8HD, UK (E2 8HD)",PureGym London Hoxton,"Rosewood Building, Unit 14 Cremer St, London E2 8GX, UK",100,2,51.55,-0.05,2854
+E1 Studios,"3-15 Whitechapel Rd, London E1 1DU, UK (E1 1DU)",PureGym London Whitechapel,"100 Whitechapel Rd, London E1 1JG, UK",320,4,51.517457,-0.064789,349
+Ealing Cross,"85 Uxbridge Rd, London W5 5BW, UK (W5 5BW)",PureGym London Ealing Broadway,"Broadway Shopping Centre, The Broadway, London W5 5JY, UK",850,10,51.512523,-0.303141,599
+East London Works,"75 Whitechapel Rd, London E1 1DU, UK (E1 1DU)",PureGym London Whitechapel,"100 Whitechapel Rd, London E1 1JG, UK",170,2,51.517457,-0.064789,180
+Edinburgh House,"170 Kennington Ln, London SE11 5DP, UK (SE11 5DP)",PureGym London Oval,"Units 4, Brixton Rd, London SW9 6DE, UK",950,10,51.480402,-0.110227,881
+Exmouth House,"3-11 Pine St, London EC1R 0JH, UK (EC1R 0JH)",PureGym London Farringdon,"122 Clerkenwell Rd, London EC1R 5DL, UK",450,6,51.52218,-0.108959,353
+Faircharm Creative Quarter,"Fuel Tank, 8-12 Creekside, London SE8 3DX, UK (SE8 3DX)",PureGym London Greenwich,"48-80 Greenwich High Rd, London SE10 8JL, UK",899,10,51.475895,-0.0192,206
+Greville Street,"24 Greville St, London EC1N 8SS, UK (EC1N 8SS)",PureGym London Farringdon,"122 Clerkenwell Rd, London EC1R 5DL, UK",450,6,51.52218,-0.108959,349
+Highgate Studios,"53-79 Highgate Rd, London NW5 1TL, UK (NW5 1TL)",PureGym London Kentish Town,"217-223 Kentish Town Rd, London NW5 2JU, UK",793,10,51.546994,-0.141852,786
+Holywell Centre,"The Frames, 1 Phipp St, London EC2A 4PS, UK (EC2A 4PS)",PureGym London Shoreditch High Street,"8 Bacon St, London E1 6LF, UK",850,10,51.524124,-0.072103,683
+Kennington Park,"Kennington Park Business Centre, 1-3 Brixton Rd, London SW9 6DE, UK (SW9 6DE)",PureGym London Oval,"Units 4, Brixton Rd, London SW9 6DE, UK",65,1,51.480402,-0.110227,55
+Magenta House,"5 Tyrian Place, London E1 1DQ, UK (E1 1DQ)",PureGym London Whitechapel,"100 Whitechapel Rd, London E1 1JG, UK",291,4,51.517457,-0.064789,159
+Metal Box Factory,"30 Great Guildford St, London SE1 0HS, UK (SE1 0HS)",PureGym London Borough,"13-16 Long Ln, Empire Sq E, London SE1 4NA, UK",650,9,51.500626,-0.090789,619
+Morie Street Studios,"4-6 Morie St, London SW18 1SL, UK (SW18 1SL)",PureGym London Wandsworth,"52 Wandsworth High St, London SW18 4LD, UK",550,8,51.456902,-0.192238,366
+Quality Court,"1, Quality Court, off Chancery Ln, London WC2A 1HR, UK (WC2A 1HR)",PureGym London Holborn,"84 Theobalds Rd, London WC1X 8RW, UK",800,10,51.520617,-0.118061,605
+Record Hall,"16-16A Baldwin's Gardens, London EC1N 7RJ, UK (EC1N 7RJ)",PureGym London Farringdon,"122 Clerkenwell Rd, London EC1R 5DL, UK",450,6,51.52218,-0.108959,245
+Record Hall,"16-16A Baldwin's Gardens, London EC1N 7RJ, UK (EC1N 7RJ)",PureGym London Holborn,"84 Theobalds Rd, London WC1X 8RW, UK",750,10,51.520617,-0.118061,562
+The Biscuit Factory,"100 Drummond Rd, London SE16 4DG, UK (SE16 4DG)",PureGym London Bermondsey,"The Biscuit Factory, 100 Drummond Rd, London SE16 4DG",30,1,51.494066,-0.0631783,142
+The Chocolate Factory,"The Chocolate Factory, 5 Clarendon Rd, London N22 6XJ, UK (N22 6XJ)",PureGym London Wood Green,"110 High Rd, London N22 6HE, UK",650,9,51.594227,-0.107787,459
+The Frames,"The Frames, 1 Phipp St, London EC2A 4PS, UK (EC2A 4PS)",PureGym London Shoreditch High Street,"8 Bacon St, London E1 6LF, UK",850,10,51.524124,-0.072103,683
+The Fuel Tin,"Fuel Tank, 8-12 Creekside, London SE8 3DX, UK (SE8 3DX)",PureGym London Greenwich,"48-80 Greenwich High Rd, London SE10 8JL, UK",899,10,51.475895,-0.0192,206
+The Leather Market,"THE LEATHER MARKET, Weston St, London SE1 3ER, UK (SE1 3ER)",PureGym London Borough,"13-16 Long Ln, Empire Sq E, London SE1 4NA, UK",549,7,51.500626,-0.090789,415
+The Print Rooms,"164-180 Union St, London SE1 0LH, UK (SE1 0LH)",PureGym London Waterloo,"11-15 Brad St, London SE1 8TG, UK",750,10,51.503982,-0.108617,574
