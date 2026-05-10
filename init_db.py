@@ -23,7 +23,8 @@ def setup_database():
             Latitude as lat,
             Longitude as lon,
             Postcode as postcode
-        FROM offices_df;
+        FROM offices_df
+        ORDER BY office_name;
     """)
     
     # 2. Import Geocoded Gyms (if files exist)
@@ -43,7 +44,8 @@ def setup_database():
                     crow_flies_distance_metres as CrowFliesDistanceM,
                     gym_latitude as lat,
                     gym_longitude as lon
-                FROM read_csv_auto('{file}');
+                FROM read_csv_auto('{file}')
+                ORDER BY Office, Duration, Distance, Name, Address;
             """)
             print(f"Imported {file} into {table_name}")
         else:
