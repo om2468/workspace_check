@@ -15,6 +15,7 @@ GYMGROUP_COLOR = [230, 57, 70, 180]
 LONDON_CENTER = {"lat": 51.5074, "lon": -0.1278}
 DATA_FILES = [
     ("Workspace office locations", Path("workspace_office_locations.csv")),
+    ("Workspace office reviews", Path("workspace_office_reviews.csv")),
     ("PureGym geocoded results", Path("puregym_locations_geocoded.csv")),
     ("The Gym Group geocoded results", Path("gymgroup_locations_geocoded.csv")),
 ]

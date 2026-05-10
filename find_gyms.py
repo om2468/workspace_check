@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
+from workspace_office_filters import is_workspace_office_name
+
 load_dotenv()
 
 API_KEY = os.getenv("GEMINI_API_KEY")
@@ -100,7 +102,11 @@ def process_gyms():
     # Use 'utf-8-sig' to handle Byte Order Mark (BOM) if present
     with open(input_file, mode='r', encoding='utf-8-sig') as f:
         reader = csv.DictReader(f)
-        offices = list(reader)
+        offices = [
+            office
+            for office in reader
+            if is_workspace_office_name(office.get('Name'))
+        ]
     
     # Define CSV fields
     fieldnames = ["office_name", "office_address", "gym_name", "gym_address", "distance_metres", "walk_time_mins"]

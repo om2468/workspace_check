@@ -9,6 +9,8 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
+from workspace_office_filters import is_workspace_office_name
+
 
 load_dotenv()
 
@@ -123,6 +125,8 @@ def main():
         writer.writeheader()
 
         for index, office in enumerate(offices, start=1):
+            if not is_workspace_office_name(office["Name"]):
+                continue
             print(f"Processing ({index}/{len(offices)}): {office['Name']}")
             record = fetch_office_record(
                 build_office_prompt(
@@ -137,21 +141,6 @@ def main():
                 record["SeedLongitude"] = office["Longitude"]
                 record["SeedPostcode"] = office["Postcode"]
                 writer.writerow(record)
-            else:
-                writer.writerow(
-                    {
-                        "Name": office["Name"],
-                        "Address": office.get("Address", ""),
-                        "Latitude": office["Latitude"],
-                        "Longitude": office["Longitude"],
-                        "Postcode": office["Postcode"],
-                        "GroundedName": "",
-                        "GroundingNotes": "No grounded result returned",
-                        "SeedLatitude": office["Latitude"],
-                        "SeedLongitude": office["Longitude"],
-                        "SeedPostcode": office["Postcode"],
-                    }
-                )
             file_handle.flush()
             time.sleep(3)
 
