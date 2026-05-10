@@ -9,6 +9,9 @@ from geopy.distance import geodesic
 load_dotenv()
 
 API_KEY = os.getenv("OPENCAGE_API_KEY")
+ADDRESS_OVERRIDES = {
+    "PureGym London Bermondsey": "The Biscuit Factory, 100 Drummond Rd, London SE16 4DG",
+}
 
 
 def load_office_lookup():
@@ -25,6 +28,13 @@ def load_office_lookup():
 
 def calculate_crow_flies_distance(office_coords, gym_coords):
     return int(round(geodesic(office_coords, gym_coords).meters))
+
+
+def normalize_gym_address(row):
+    overridden_address = ADDRESS_OVERRIDES.get(row["gym_name"])
+    if overridden_address:
+        row["gym_address"] = overridden_address
+    return row
 
 def call_opencage_rest(query):
     # Construct the REST URL as per documentation
@@ -70,6 +80,7 @@ def geocode_csv(input_file, output_file):
             writer.writeheader()
             
             for row in reader:
+                row = normalize_gym_address(row)
                 address = row['gym_address']
                 print(f"  Geocoding: {address}")
                 

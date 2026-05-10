@@ -5,3 +5,4 @@ pydeck
 python-dotenv
 requests
 geopy
+google-genai

@@ -26,7 +26,7 @@ def load_data():
     con = duckdb.connect(DB_PATH, read_only=True)
     try:
         offices = con.execute(
-            "SELECT office_name, lat, lon, postcode FROM offices ORDER BY office_name"
+            "SELECT office_name, address, lat, lon, postcode FROM offices ORDER BY office_name"
         ).df()
         gyms = con.execute(
             """
@@ -164,6 +164,8 @@ if view_mode == "Single Office":
     office_gyms = office_gyms.sort_values(["Duration", "Distance", "CrowFliesDistanceM", "Name"])
 
     st.subheader(selected_office_name)
+    if pd.notna(selected_office.get("address", None)) and str(selected_office["address"]).strip():
+        st.write(f"Address: {selected_office['address']}")
     st.write(f"Postcode: {selected_office['postcode']}")
 
     st.markdown("### Nearby Gyms")

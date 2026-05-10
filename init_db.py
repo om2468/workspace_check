@@ -1,5 +1,6 @@
 import duckdb
 import os
+import pandas as pd
 
 def setup_database():
     db_path = "gym_locator.db"
@@ -10,14 +11,19 @@ def setup_database():
     print("Initializing DuckDB tables...")
     
     # 1. Create Offices Table
+    offices = pd.read_csv("workspace_office_locations.csv")
+    if "Address" not in offices.columns:
+        offices["Address"] = ""
+    con.register("offices_df", offices)
     con.execute("""
         CREATE OR REPLACE TABLE offices AS 
         SELECT 
             Name as office_name,
+            Address as address,
             Latitude as lat,
             Longitude as lon,
             Postcode as postcode
-        FROM read_csv_auto('workspace_office_locations.csv');
+        FROM offices_df;
     """)
     
     # 2. Import Geocoded Gyms (if files exist)

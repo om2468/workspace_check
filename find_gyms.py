@@ -2,42 +2,78 @@ import csv
 import json
 import os
 import time
-import requests
+
 from dotenv import load_dotenv
+from google import genai
+from google.genai import types
 
 load_dotenv()
 
 API_KEY = os.getenv("GEMINI_API_KEY")
-MODEL_ID = "gemini-flash-lite-latest"
-URL = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL_ID}:generateContent?key={API_KEY}"
+MODEL_ID = os.getenv("GEMINI_MODEL_ID", "gemini-3.1-flash-lite")
+CLIENT = genai.Client(api_key=API_KEY) if API_KEY else None
+GYM_RESULT_SCHEMA = {
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "office_name": {"type": "string"},
+            "office_address": {"type": "string"},
+            "gym_name": {"type": "string"},
+            "gym_address": {"type": "string"},
+            "distance_metres": {"type": "integer"},
+            "walk_time_mins": {"type": "integer"},
+        },
+        "required": [
+            "office_name",
+            "office_address",
+            "gym_name",
+            "gym_address",
+            "distance_metres",
+            "walk_time_mins",
+        ],
+    },
+}
+
+
+def build_gym_prompt(brand, office_name, office_postcode, coords):
+    return (
+        f"Use Google Maps grounding to find up to 3 {brand} locations within a 10-minute walk of "
+        f"Workspace office '{office_name}' near postcode {office_postcode} at coordinates {coords}. "
+        f"Only return real locations you can ground from Google Maps results. Do not invent, estimate, or "
+        f"merge locations. If fewer than 3 grounded gyms are found, return fewer items. If none are found, "
+        f"return an empty JSON array. Return ONLY JSON using this schema: "
+        f"[{{\"office_name\": \"{office_name}\", \"office_address\": \"{office_postcode}\", "
+        f"\"gym_name\": \"string\", \"gym_address\": \"string\", \"distance_metres\": integer, "
+        f"\"walk_time_mins\": integer}}]"
+    )
 
 def call_gemini(prompt, retries=3):
-    headers = {"Content-Type": "application/json"}
-    data = {
-        "contents": [{
-            "parts": [{"text": prompt}]
-        }],
-        "generationConfig": {
-            "response_mime_type": "application/json"
-        }
-    }
-    
+    if not CLIENT:
+        print("Missing GEMINI_API_KEY in environment.")
+        return None
+
     for attempt in range(retries):
         try:
-            response = requests.post(URL, headers=headers, json=data)
-            if response.status_code == 200:
-                result = response.json()
-                # Extract text from response
-                text_content = result['candidates'][0]['content']['parts'][0]['text']
-                return json.loads(text_content)
-            elif response.status_code == 429:
-                print(f"Rate limited. Waiting and retrying... (Attempt {attempt + 1})")
-                time.sleep(10 * (attempt + 1))
-            else:
-                print(f"Error {response.status_code}: {response.text}")
+            response = CLIENT.models.generate_content(
+                model=MODEL_ID,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    tools=[types.Tool(google_maps=types.GoogleMaps())],
+                    response_mime_type="application/json",
+                    response_schema=GYM_RESULT_SCHEMA,
+                    thinking_config=types.ThinkingConfig(thinking_level="MINIMAL"),
+                ),
+            )
+            if not response.text:
+                return []
+            return json.loads(response.text)
         except Exception as e:
             print(f"Exception during API call: {e}")
-        
+            if attempt < retries - 1:
+                print(f"Retrying... (Attempt {attempt + 1})")
+                time.sleep(10 * (attempt + 1))
+
     return None
 
 def process_gyms():
@@ -65,18 +101,14 @@ def process_gyms():
     
         for i, office in enumerate(offices):
             name = office['Name']
-            address = office['Postcode']
+            address = office.get('Address') or office['Postcode']
+            postcode = office['Postcode']
             coords = f"{office['Latitude']}, {office['Longitude']}"
             
             print(f"Processing ({i+1}/{len(offices)}): {name}")
             
             # Query and write for PureGym
-            puregym_prompt = (
-                f"Find up to the 3 closest PureGym locations to '{name}' at {address} ({coords}) "
-                f"that are within a 10-minute walk. Return ONLY a JSON list of objects: "
-                f"[{{\"office_name\": \"{name}\", \"office_address\": \"{address}\", \"gym_name\": \"string\", "
-                f"\"gym_address\": \"string\", \"distance_metres\": integer, \"walk_time_mins\": integer}}]"
-            )
+            puregym_prompt = build_gym_prompt("PureGym", name, f"{address} ({postcode})", coords)
             puregym_results = call_gemini(puregym_prompt)
             if puregym_results and isinstance(puregym_results, list):
                 for res in puregym_results:
@@ -85,12 +117,7 @@ def process_gyms():
             time.sleep(3)
             
             # Query and write for The Gym Group
-            gymgroup_prompt = (
-                f"Find up to the 3 closest 'The Gym Group' locations to '{name}' at {address} ({coords}) "
-                f"that are within a 10-minute walk. Return ONLY a JSON list of objects: "
-                f"[{{\"office_name\": \"{name}\", \"office_address\": \"{address}\", \"gym_name\": \"string\", "
-                f"\"gym_address\": \"string\", \"distance_metres\": integer, \"walk_time_mins\": integer}}]"
-            )
+            gymgroup_prompt = build_gym_prompt("The Gym Group", name, f"{address} ({postcode})", coords)
             gymgroup_results = call_gemini(gymgroup_prompt)
             if gymgroup_results and isinstance(gymgroup_results, list):
                 for res in gymgroup_results:
