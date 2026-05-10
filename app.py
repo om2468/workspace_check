@@ -168,11 +168,140 @@ def render_downloads():
             column.caption(f"Missing: {path.name}")
 
 
+def build_office_stats(offices: pd.DataFrame, gyms: pd.DataFrame) -> pd.DataFrame:
+    office_stats = offices[["office_name"]].copy()
+
+    counts = (
+        gyms.groupby(["Office", "Brand"]).size().unstack(fill_value=0).reset_index().rename(columns={"Office": "office_name"})
+    )
+    for brand in ["PureGym", "The Gym Group"]:
+        if brand not in counts.columns:
+            counts[brand] = 0
+
+    summary = (
+        gyms.groupby("Office")
+        .agg(
+            total_gyms=("Name", "size"),
+            avg_google_time_min=("Duration", "mean"),
+            avg_google_distance_m=("Distance", "mean"),
+            avg_crow_flies_distance_m=("CrowFliesDistanceM", "mean"),
+            nearest_google_time_min=("Duration", "min"),
+            nearest_google_distance_m=("Distance", "min"),
+            nearest_crow_flies_distance_m=("CrowFliesDistanceM", "min"),
+        )
+        .reset_index()
+        .rename(columns={"Office": "office_name"})
+    )
+
+    office_stats = office_stats.merge(counts, on="office_name", how="left").merge(summary, on="office_name", how="left")
+    office_stats[["PureGym", "The Gym Group", "total_gyms"]] = office_stats[
+        ["PureGym", "The Gym Group", "total_gyms"]
+    ].fillna(0)
+
+    numeric_columns = [
+        "avg_google_time_min",
+        "avg_google_distance_m",
+        "avg_crow_flies_distance_m",
+        "nearest_google_time_min",
+        "nearest_google_distance_m",
+        "nearest_crow_flies_distance_m",
+    ]
+    office_stats[numeric_columns] = office_stats[numeric_columns].round(1)
+    office_stats[["PureGym", "The Gym Group", "total_gyms"]] = office_stats[
+        ["PureGym", "The Gym Group", "total_gyms"]
+    ].astype(int)
+    return office_stats.sort_values(["total_gyms", "office_name"], ascending=[False, True])
+
+
+def build_brand_stats(gyms: pd.DataFrame) -> pd.DataFrame:
+    brand_stats = (
+        gyms.groupby("Brand")
+        .agg(
+            office_coverage=("Office", "nunique"),
+            total_matches=("Name", "size"),
+            unique_sites=("Address", "nunique"),
+            avg_google_time_min=("Duration", "mean"),
+            avg_google_distance_m=("Distance", "mean"),
+            avg_crow_flies_distance_m=("CrowFliesDistanceM", "mean"),
+            nearest_google_time_min=("Duration", "min"),
+            nearest_google_distance_m=("Distance", "min"),
+            nearest_crow_flies_distance_m=("CrowFliesDistanceM", "min"),
+        )
+        .reset_index()
+    )
+    numeric_columns = [
+        "avg_google_time_min",
+        "avg_google_distance_m",
+        "avg_crow_flies_distance_m",
+        "nearest_google_time_min",
+        "nearest_google_distance_m",
+        "nearest_crow_flies_distance_m",
+    ]
+    brand_stats[numeric_columns] = brand_stats[numeric_columns].round(1)
+    return brand_stats.sort_values("Brand")
+
+
+def build_brand_office_breakdown(gyms: pd.DataFrame) -> pd.DataFrame:
+    breakdown = (
+        gyms.groupby(["Brand", "Office"])
+        .agg(
+            matches=("Name", "size"),
+            avg_google_time_min=("Duration", "mean"),
+            avg_google_distance_m=("Distance", "mean"),
+            avg_crow_flies_distance_m=("CrowFliesDistanceM", "mean"),
+            nearest_site=("Name", "first"),
+            nearest_google_time_min=("Duration", "min"),
+            nearest_google_distance_m=("Distance", "min"),
+            nearest_crow_flies_distance_m=("CrowFliesDistanceM", "min"),
+        )
+        .reset_index()
+    )
+    numeric_columns = [
+        "avg_google_time_min",
+        "avg_google_distance_m",
+        "avg_crow_flies_distance_m",
+        "nearest_google_time_min",
+        "nearest_google_distance_m",
+        "nearest_crow_flies_distance_m",
+    ]
+    breakdown[numeric_columns] = breakdown[numeric_columns].round(1)
+    return breakdown.sort_values(["Brand", "matches", "Office"], ascending=[True, False, True])
+
+
+def render_stats_section(offices: pd.DataFrame, gyms: pd.DataFrame):
+    st.markdown("### Office and Gym Stats")
+
+    office_stats = build_office_stats(offices, gyms)
+    brand_stats = build_brand_stats(gyms)
+    brand_breakdown = build_brand_office_breakdown(gyms)
+
+    metric_columns = st.columns(5)
+    metric_columns[0].metric("Workspace offices", f"{len(offices)}")
+    metric_columns[1].metric("Gym matches", f"{len(gyms)}")
+    metric_columns[2].metric("PureGym matches", f"{int((gyms['Brand'] == 'PureGym').sum())}")
+    metric_columns[3].metric("Gym Group matches", f"{int((gyms['Brand'] == 'The Gym Group').sum())}")
+    metric_columns[4].metric("Avg gyms per office", f"{(len(gyms) / len(offices)):.1f}" if len(offices) else "0.0")
+
+    summary_tab, office_tab, brand_tab = st.tabs(["Summary", "By Office", "By Gym Group"])
+
+    with summary_tab:
+        st.dataframe(brand_stats, width="stretch", hide_index=True)
+
+    with office_tab:
+        st.dataframe(office_stats, width="stretch", hide_index=True)
+
+    with brand_tab:
+        selected_brand = st.selectbox("Gym group", brand_stats["Brand"].tolist(), key="stats_brand_select")
+        filtered_breakdown = brand_breakdown.loc[brand_breakdown["Brand"] == selected_brand].reset_index(drop=True)
+        st.dataframe(filtered_breakdown, width="stretch", hide_index=True)
+
+
 offices, gyms = load_data()
 
 st.title("Workspace Gym Finder")
 st.markdown("Find the closest PureGym and The Gym Group locations for each Workspace office.")
 render_downloads()
+render_stats_section(offices, gyms)
 
 st.sidebar.header("Navigation")
 view_mode = st.sidebar.radio("View Mode", ["Single Office", "All Locations"])
